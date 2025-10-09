@@ -1,23 +1,15 @@
 import Image from "next/image";
 import SearchForm from "../../components/SearchForm";
 import StartupCard from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/lib/queries";
 
 export default async function Home({searchParams}: {
   searchParams: Promise<{query?: string}>
 }) {
   const query = (await searchParams).query;
-  const posts = [{
-    _createdAt: Date.now(),
-    views: 55,
-    author: {
-      _id: 1,
-      name: "david",
-      description: "This is description",
-      image: "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?semt=ais_hybrid&w=740&q=80",
-      category: "Robots",
-      title: "We Robots"
-    }
-  }]
+  const posts = await client.fetch(STARTUPS_QUERY)
+  console.log(JSON.stringify(posts, null, 2))
   return (
     <>
       <section className="pink_container pattern">

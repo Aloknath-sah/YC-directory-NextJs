@@ -9,7 +9,7 @@ const Navbar = async () => {
     const session = await auth();
     console.log("session", session)
   return (
-    <header>
+    <header className='p-5' >
         <nav className='flex justify-between items-center' >
             <Link href="/" >
                 <Image src="/next.svg" alt="logo" width={144} height={30} />

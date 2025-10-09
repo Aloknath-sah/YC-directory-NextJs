@@ -6,7 +6,8 @@ import React from 'react'
 import { Button } from './ui/button'
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
-  const { _createdAt, views, author } = post;
+  const { _createdAt, views, author, category, title, _id, description } = post;
+  const { _id:authorId, name, image, bio} = author;
   return (
     <li className='startup-card group' >
         <div className='flex justify-between items-center'>
@@ -22,37 +23,37 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
           </div>
           <div className='flex justify-between mt-5 gap-5'>
                 <div className='flex-1'>
-                  <Link href={`/user/${author?._id}`}>
+                  <Link href={`/user/${authorId}`}>
                     <p className='text-[16px] font-medium truncate' >
-                      {author?.name}
+                      {name}
                     </p>
                   </Link>
-                  <Link href={`/startup/${author?._id}`}>
+                  <Link href={`/startup/${_id}`}>
                     <h3 className='text-[26px] font-semibold truncate' >
-                      {author?.title}
+                      {title}
                     </h3>
                   </Link>
                   </div>
-                  <Link href={`/user/${author?._id}`} >
+                  <Link href={`/user/${authorId}`} >
                     <Image src="https://placehold.co/48x48" alt="placeholder" width={48} height={48} className="rounded-full" />
                   </Link>
               </div>
-            <Link href={`/startup/${author?._id}`}>
+            <Link href={`/startup/${_id}`}>
                 <p className='startup-card_desc'>
-                  {author?.description}
+                  {description}
                 </p>
-                <img src={author?.image} alt="placeholder" className='startup-card_img' />
+                <img src={image} alt="placeholder" className='startup-card_img' />
             </Link>
 
             {/* footer */}
             <div className='flex justify-between gap-3 mt-5'>
-                <Link href={`/?query=${author?.category.toLowerCase()}`} >
+                <Link href={`/?query=${category.toLowerCase()}`} >
                   <p className='text-[16px] font-medium' >
-                    {author?.category}
+                    {category}
                   </p>
                 </Link>
                 <Button className='startup-card-btn' asChild>
-                  <Link href={`/startup/${author?._id}`} >Details</Link>
+                  <Link href={`/startup/${_id}`} >Details</Link>
                 </Button>
             </div>
     </li>
