@@ -7,10 +7,11 @@ export default async function Home({searchParams}: {
 }) {
   const query = (await searchParams).query;
   const posts = [{
-    _createdAt: 'Yesterday',
+    _createdAt: Date.now(),
     views: 55,
     author: {
       _id: 1,
+      name: "david",
       description: "This is description",
       image: "https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg?semt=ais_hybrid&w=740&q=80",
       category: "Robots",

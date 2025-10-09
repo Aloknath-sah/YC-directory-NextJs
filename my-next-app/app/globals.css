@@ -166,8 +166,16 @@
     @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px]
       shadow-md hover:border-primary transition-all duration-500 hover:shadow-lg hover:bg-primary/10;
   }
+   .startup-card_desc {
+    @apply font-normal text-[16px] line-clamp-2 my-3 break-all;
+  }
 
-
+  .startup-card_img {
+    @apply w-full h-[164px] rounded-[10px] object-cover;
+  }
+  .startup-card_btn {
+      @apply !rounded-full !font-medium !text-[16px] !text-white !px-5 !py-3;
+    }
   /* .startup-card_date {
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100;
   } */
