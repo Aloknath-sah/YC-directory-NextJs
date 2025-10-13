@@ -4,10 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
+import { Author, Startup } from '@/sanity/sanity.types'
+
+export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
   const { _createdAt, views, author, category, title, _id, description } = post;
   const { _id:authorId, name, image, bio} = author;
+  
   return (
     <li className='startup-card group' >
         <div className='flex justify-between items-center'>
