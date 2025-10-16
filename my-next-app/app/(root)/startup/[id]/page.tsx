@@ -4,8 +4,10 @@ import { client } from '@/sanity/lib/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react';
+import React, { Suspense } from 'react';
 import markdownit from 'markdown-it';
+import { Skeleton } from '@/components/ui/skeleton';
+import View from '@/components/View';
 
 const md = markdownit();
 export const experimental_ppr = true;
@@ -46,6 +48,12 @@ const page = async ({ params }: { params: Promise<{id: string}> }) => {
                         parsedContent ? (<article dangerouslySetInnerHTML={{ __html: parsedContent }} />) : (<p className='no-result' >No Details Provided</p>)
                     }
             </div>
+            <hr className='divider' />
+
+            <Suspense fallback={<Skeleton className='view_skeleton' />} >
+                <View id={id} />
+            </Suspense>
+
         </section>
         
     </div>

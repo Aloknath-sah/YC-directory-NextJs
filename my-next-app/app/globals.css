@@ -185,6 +185,15 @@
   .no-result {
     @apply text-sm font-normal;
   }
+  .divider {
+    @apply border-dotted bg-zinc-400 max-w-4xl my-10 mx-auto;
+  }
+  .view_skeleton {
+    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
+  }
+   .view-text {
+    @apply font-medium text-[16px] px-4 py-2 rounded-lg capitalize;
+  }
   /* .startup-card_date {
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100;
   } */
