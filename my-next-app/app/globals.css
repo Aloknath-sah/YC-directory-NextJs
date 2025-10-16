@@ -175,7 +175,16 @@
   }
   .startup-card_btn {
       @apply !rounded-full !font-medium !text-[16px] !text-white !px-5 !py-3;
-    }
+  }
+  .category-tag {
+    @apply font-medium text-[16px] py-2 rounded-full;
+  }
+  .text-30-bold {
+    @apply text-[30px] font-bold text-black;
+  }
+  .no-result {
+    @apply text-sm font-normal;
+  }
   /* .startup-card_date {
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full group-hover:bg-white-100;
   } */
