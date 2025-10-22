@@ -8,6 +8,8 @@ import { StartupTypeCard } from "@/components/StartupCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home({searchParams}: {
   searchParams: Promise<{query?: string}>
 }) {
@@ -16,7 +18,9 @@ export default async function Home({searchParams}: {
 
   const session = await auth();
   console.log("sessionId", session?.id)
-  const {data: posts} = await sanityFetch({ query: STARTUPS_QUERY, params } )
+  const {data: posts} = await sanityFetch({ query: STARTUPS_QUERY, params, options: { 
+    useCdn: false // always fetch fresh data from Sanity
+  } } )
   console.log(JSON.stringify(posts, null, 2))
   return (
     <>
