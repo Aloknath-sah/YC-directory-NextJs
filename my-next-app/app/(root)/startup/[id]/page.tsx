@@ -10,11 +10,11 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 
 const md = markdownit();
-export const experimental_ppr = true;
+export const dynamic = 'force-dynamic';
 
 const page = async ({ params }: { params: Promise<{id: string}> }) => {
     const id = (await params).id;
-    const post = await client.fetch(STARTUP_BY_ID_QUERY, {id})
+    const post = await client.fetch(STARTUP_BY_ID_QUERY, {id}, { cache: 'no-store' })
     if(!post) return notFound();
     console.log("post", post)
     const parsedContent = md.render(post?.pitch || '')
