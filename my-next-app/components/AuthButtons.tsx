@@ -13,7 +13,7 @@ export default function AuthButtons({ session }: { session: any }) {
                     <span className="max-sm:hidden">Create</span>
                     <BadgePlus className="size-6 sm:hidden" />
                 </Link>
-                <button onClick={() => signOut()}>
+                <button onClick={() => signOut()} className="flex items-center gap-2 cursor-pointer hover:text-red-500 transition">
                     <span className="max-sm:hidden">Logout</span>
                     <LogOut className="size-6 sm:hidden text-red-500" />
                 </button>
@@ -32,7 +32,7 @@ export default function AuthButtons({ session }: { session: any }) {
     }
 
     return (
-        <button onClick={() => signIn('github')}>
+        <button onClick={() => signIn('github')} className="cursor-pointer hover:text-primary transition">
             <span>Login</span>
         </button>
     );
