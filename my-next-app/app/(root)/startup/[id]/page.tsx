@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic';
 
 const page = async ({ params }: { params: Promise<{id: string}> }) => {
     const id = (await params).id;
-    const post = await client.fetch(STARTUP_BY_ID_QUERY, {id}, { cache: 'no-store' })
+    const post = await client.fetch(STARTUP_BY_ID_QUERY, {id})
     if(!post) return notFound();
     console.log("post", post)
     const parsedContent = md.render(post?.pitch || '')
