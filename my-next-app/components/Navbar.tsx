@@ -12,7 +12,7 @@ const Navbar = async () => {
     <header className='p-5' >
         <nav className='flex justify-between items-center' >
             <Link href="/" >
-                <Image src="/next.svg" alt="logo" width={144} height={30} />
+                <Image src="/YC_Directory_m.png" alt="logo" width={75} height={10} />
             </Link>
             <div className='flex items-center gap-5 text-black'>
                 <AuthButtons session={session} />
