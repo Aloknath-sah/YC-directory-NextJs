@@ -9,7 +9,7 @@
     "lint": "eslint",
     "predev": "npm run typegen",
     "prebuild": "npm run typegen",
-    "typegen": "cd sanity && npx sanity schema extract --path=./schema.json && npx sanity typegen generate"
+    "typegen": "npx sanity schema extract --path=./schema.json && npx sanity typegen generate"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
