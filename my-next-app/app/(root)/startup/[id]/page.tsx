@@ -27,18 +27,18 @@ const page = async ({ params }: { params: Promise<{id: string}> }) => {
             <p className='sub-heading'>{post.description} </p>
         </section>
         <section className='section_container'>
-            <img src={post.image} alt="thumbnail" className='w-full h-88 object-cover rounded-xl' />
+            <img src={post?.image} alt="thumbnail" className='w-full h-88 object-cover rounded-xl' />
             <div className='space-y-5 mt-10 max-w-4xl mx-auto'>
                 <div className='flex justify-between items-center gap-5'>
                     <div>
                         <Link href={`/user/${post.author?._id}`} className='flex gap-2 items-center mb-3'>
                         <div className='w-16 h-16 overflow-hidden rounded-full'>
-                            <Image src={post.author.image} alt="avatar" width={64} height={64} className='object-cover w-full h-full drop-shadow-lg' /> 
+                            <Image src={post?.author?.image} alt="avatar" width={64} height={64} className='object-cover w-full h-full drop-shadow-lg' /> 
                         </div>
                     </Link>
                     <div>
-                        <p className='text-20-medium'> {post.author.name} </p>
-                        <p className='text-16-medium !text-black-300'> @{post.author.username} </p>
+                        <p className='text-20-medium'> {post?.author?.name} </p>
+                        <p className='text-16-medium !text-black-300'> @{post?.author?.username} </p>
                     </div>
                 </div>
                 <p className='category-tag'>{post.category}</p>
