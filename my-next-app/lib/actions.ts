@@ -11,7 +11,7 @@ export const createPitch = async (
   pitch: string,
 ) => {
   const session = await auth();
-
+  console.log("session222", session)
   if (!session)
     return parseServerActionResponse({
       error: "Not signed in",
@@ -36,7 +36,7 @@ export const createPitch = async (
       },
       author: {
         _type: "reference",
-        _ref: session?.user?.id,
+        _ref: session?.id,
       },
       pitch,
     };

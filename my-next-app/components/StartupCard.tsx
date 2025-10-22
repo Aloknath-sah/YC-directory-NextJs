@@ -9,9 +9,15 @@ import { Author, Startup } from '@/sanity/sanity.types'
 export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
 
 const StartupCard = ({post}: {post: StartupTypeCard}) => {
-  const { _createdAt, views, author, category, title, _id, description } = post;
-  const { _id:authorId='', name='', image=null, bio=''} = author || {};
-  
+  const {  _createdAt,
+    views,
+    author,
+    title,
+    category,
+    _id,
+    image,
+    description } = post;
+  console.log("post", post)
   return (
     <li className='startup-card group' >
         <div className='flex justify-between items-center'>
@@ -27,9 +33,9 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
           </div>
           <div className='flex justify-between mt-5 gap-5'>
                 <div className='flex-1'>
-                  <Link href={`/user/${authorId}`}>
+                  <Link href={`/user/${author?._id}`}>
                     <p className='text-[16px] font-medium truncate' >
-                      {name}
+                      {author?.name}
                     </p>
                   </Link>
                   <Link href={`/startup/${_id}`}>
@@ -38,8 +44,8 @@ const StartupCard = ({post}: {post: StartupTypeCard}) => {
                     </h3>
                   </Link>
                   </div>
-                  <Link href={`/user/${authorId}`} >
-                    <Image src="https://placehold.co/48x48" alt="placeholder" width={48} height={48} className="rounded-full" />
+                  <Link href={`/user/${author?._id}`} >
+                    <Image src={author?.image!} alt="placeholder" width={48} height={48} className="rounded-full" />
                   </Link>
               </div>
             <Link href={`/startup/${_id}`}>
